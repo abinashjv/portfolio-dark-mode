@@ -1,0 +1,116 @@
+><!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dark Mode Example</title>
+        <link rel="stylesheet" href="aa (1).css">
+    </head>
+    <body>
+        <nav>   
+      <div class="nav__content">
+        <div class="logo"><a href="#">ABINASH</a></div>
+        <label for="check" class="checkbox">
+          <i class="ri-menu-line"></i>
+        </label>
+        <input type="checkbox" name="check" id="check" >
+        <ul>
+          <li><a href="#home">HOME</a></li>
+          <li><a href="#about">ABOUT</a></li>
+          <li><a href="#resume">RESUME</a></li>
+          <li><a href="#contact">CONTACT</a></li>
+          <li><button id="toggleTheme">🌓Mode</button></li>
+        </ul>
+      </div>
+    </nav>
+    <section class="section" id="home">
+      <div class="section__container">
+        <div class="content">
+          <h4 class="subtitle">Hello, I am</h4>
+          <h1 class="title">Abinash</h1>
+          <p >
+            Welcome to my web developer portfolio! I'm ABINASH, 
+            "It is the process of planning,designing and implementing the website."
+          </p>
+          
+        </div>
+        <div class="image">
+          <img src="a.jpg" alt="profile" />
+        </div>
+      </div>
+    </section>
+    <section class="about" id="about">
+            <div class="about__content">
+                <h2 class="about__title">About Me</h2>
+                <p class="about__description">
+                    I am Abinash , a passionate front-end web developer based in India. 
+                    I specialize in creating clean and responsive websites using modern 
+                    technologies like HTML, CSS, JavaScript, and React. I aim to build 
+                    functional and visually appealing websites that provide a seamless user 
+                    experience.
+                </p>
+            </div>
+            </section>
+    <section class="contact" id="contact">
+        <h2>Contact Me</h2>
+        <div class="contact-container">
+          <div class="contact-info">
+            <h3>Get in Touch</h3>
+            <p><i class="fas fa-map-marker-alt"></i> Location: demo address,TamilNadu,India</p>
+            <p><i class="fas fa-envelope"></i> Email: <a href="jvabinash@gmail.com">jvabinash@gmail.com</a></p>
+            <p><i class="fas fa-phone-alt"></i> Phone: +91 9345546184</p>
+          </div>
+          <form class="contact-form" id="contactForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required placeholder="Your Name">
+      
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required placeholder="Your Email">
+      
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" required placeholder="Your Message"></textarea>
+      
+            <button type="submit">Send Message</button>
+          </form>
+        </div>
+      </section>
+      <script>
+    document.getElementById("contactForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const message = document.getElementById("message").value.trim();
+      if (name === "" || email === "" || message === "") {
+        alert("All fields are required.");
+        return;
+      }
+      const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+      if (!email.match(emailPattern)) {
+        alert("Please enter a valid email address.");
+        return;
+      }
+      alert("Thank you , Your message has been sent.");
+    });
+    const toggleButton = document.getElementById('toggleTheme');
+const body = document.body;
+
+toggleButton.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+    if (body.classList.contains('dark-mode')) {
+        localStorage.setItem('theme', 'dark');
+    } else {
+        localStorage.setItem('theme', 'light');
+    }
+});
+
+// Load saved theme from localStorage on page load
+window.onload = () => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        body.classList.add('dark-mode');
+    }
+};
+
+    </script>
+  </body>
+</html>
